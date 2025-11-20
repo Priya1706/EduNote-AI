@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+
+# Android / Kotlin / Java
+*.apk
+*.aar
+*.iml
+.gradle/
+local.properties
+.idea/
+build/
+captures/
+app/build/
+
+# Node (if used later)
+node_modules/
+
+# ESP32 / Arduino
+*.elf
+*.bin
+*.hex
+*.map
+*.pio/
+.pioenvs/
+.pio/
+build/
+
+# OS generated
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
