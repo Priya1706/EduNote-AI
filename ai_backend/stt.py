@@ -1,7 +1,7 @@
-# ai_backend/stt.py
 import whisper
 
-def speech_to_text(audio_path):
-    model = whisper.load_model("base")
+model = whisper.load_model("base")
+
+def speech_to_text(audio_path: str) -> str:
     result = model.transcribe(audio_path)
     return result["text"]
