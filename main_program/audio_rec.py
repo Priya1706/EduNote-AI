@@ -92,7 +92,7 @@ samples = bandpass_filter(
 with wave.open(OUTPUT_FILE, "w") as wf:
     wf.setnchannels(1)
     wf.setsampwidth(2)
-    wf.setframerate(16000)
+    wf.setframerate(12000)
 
     for s in samples:
         # 1️⃣ Convert to int
@@ -109,5 +109,6 @@ with wave.open(OUTPUT_FILE, "w") as wf:
 
 
 print("✅ Audio saved as:", OUTPUT_FILE)
+
 
 #python main_program/audio_rec.py
