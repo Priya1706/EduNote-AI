@@ -1,79 +1,102 @@
-# EduNote-AI  
-Smartwatch-based AI Note Generation System  
+# EduNote AI 
 
-EduNote-AI is a wearable device + mobile app system that records lectures, transfers compressed audio to a phone, and generates structured, summarized notes using an AI backend.
-
----
-
-## Features
-- ESP32-S3 based smartwatch prototype  
-- I2S microphone audio capture  
-- MicroSD-based audio storage  
-- BLE file transfer to Android app  
-- AI-powered transcription using Whisper  
-- Structured summary generation  
-- Confidence-based verification  
+AI-Based Lecture-to-Notes System Using Local LLMs
 
 ---
 
-## System Architecture
+##  Project Overview
 
-**Watch (ESP32-S3):**  
-- I2S Recording  
-- WAV/Opus compression  
-- BLE GATT Server  
-- Audio Chunk Transfer  
+EduNote AI is an AI-powered system that converts lecture audio into clean, structured notes.
 
-**Mobile App (Android):**  
-- BLE Client  
-- File Sync  
-- Displays summarized notes  
+Currently, the system processes pre-recorded lecture audio and generates summarized notes using:
 
-**AI Backend:**  
-- Speech-to-Text  
-- Summarization  
-- Confidence scoring  
+- OpenAI Whisper (Speech-to-Text)
+- Ollama (Local LLM for Summarization)
+
+This project explores the integration of AI + Speech Processing + Education Technology.
 
 ---
 
-## Project Structure
-ai_backend/ → Whisper, summarizer scripts
-mobile_app/ → Android Studio project
-hardware/ → ESP32 I2S + BLE firmware
-docs/ → Technical documents, protocols
-.github/ → Repo automation
+##  Current Working Features
 
-
-
----
-
-## Team Roles
-
-- **Integrator (P6)** — Hardware + software integration  
-- **P1** — AI Backend  
-- **P2** — Android App  
-- **P3** — ESP32 I2S + Storage  
-- **P4** — ESP32 BLE Server  
-- **P5** — Testing + Documentation  
+-  Lecture audio processing (pre-recorded files + live recording)
+-  Speech-to-Text using OpenAI Whisper
+-  Summarization using Ollama (local LLM)
+-  Clean text output stored as `.txt` files
+-  Fully local AI pipeline (runs without cloud dependency) 
 
 ---
 
-## Week 1 Deliverables
-- BLE Handshake Protocol  
-- Pinout Definition  
-- I2S Audio Standard  
-- Repo Setup + Branch Rules  
-- Initial sample test audio file  
+##  Current AI Pipeline
+
+1. Input lecture audio file (.mp4 / .wav)
+2. Convert speech → text using Whisper
+3. Process transcript
+4. Summarize using Ollama LLM
+5. Generate structured notes in text format
 
 ---
 
-## Next Goals  
-- I2S Audio Logging  
-- BLE File Transfer  
-- App UI Screens  
-- Whisper integration  
+##  Tech Stack
+
+| Component | Technology |
+|------------|------------|
+| Speech-to-Text | OpenAI Whisper |
+| Summarization | Ollama (Local LLM) |
+| Programming Language | Python |
+| Hardware | ESP32-S3 |
+| Connectivity (Planned) | Bluetooth |
+| Storage (Planned) | SD Card |
 
 ---
 
-## License  
-MIT License.
+## Features Under Development
+
+The following features are part of the full EduNote AI Smartwatch vision but are not yet implemented:
+
+- ⌚ ESP32-based smartwatch prototype
+- 📡 Bluetooth audio transfer
+- 💾 SD card storage on device
+- ✅ Confidence Checker (Fact verification module)
+- 📱 Mobile app integration
+
+---
+
+## Repository Structure
+
+EduNote-AI/
+│
+├── live_recording/        # Audio recorded from ESP32
+├── demo_recording/        # Pre-recorded lecture
+├── notes.txt              # Output from live recording
+├── final_notes.txt        # Output from demo recording
+├── scripts/               # AI processing scripts
+└── README.md
+
+---
+
+## Research Direction
+
+This project aims to evolve into a wearable AI-powered lecture assistant that:
+
+- Records classroom audio
+- Processes it locally or on companion device
+- Generates structured, verified academic notes
+- Optimizes for Indian classroom environments
+
+---
+
+## Future Work
+
+- Integrate Bluetooth file transfer
+- Implement SD card audio storage
+- Add AI-based confidence checker
+- Build companion mobile app
+- On-device summarization optimization
+
+---
+
+## Author
+
+Priyamvadhaa  
+First-Year Engineering Student  
