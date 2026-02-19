@@ -1,79 +1,109 @@
-# EduNote-AI  
-Smartwatch-based AI Note Generation System  
-
-EduNote-AI is a wearable device + mobile app system that records lectures, transfers compressed audio to a phone, and generates structured, summarized notes using an AI backend.
+# EduNote AI   
+AI-Based Lecture-to-Notes System Using Local LLMs
 
 ---
 
-## Features
-- ESP32-S3 based smartwatch prototype  
-- I2S microphone audio capture  
-- MicroSD-based audio storage  
-- BLE file transfer to Android app  
-- AI-powered transcription using Whisper  
-- Structured summary generation  
-- Confidence-based verification  
+##  Project Overview
+
+EduNote AI is an AI-powered system that converts lecture audio into structured and summarized notes.
+
+The current implementation processes both pre-recorded and live-recorded lecture audio and generates clean notes using:
+
+-  **OpenAI Whisper** – Speech-to-Text  
+-  **Ollama (Local LLM)** – Summarization  
+
+This project explores the integration of Artificial Intelligence, Speech Processing, and Education Technology.
 
 ---
 
-## System Architecture
+##  Current Working Features
 
-**Watch (ESP32-S3):**  
-- I2S Recording  
-- WAV/Opus compression  
-- BLE GATT Server  
-- Audio Chunk Transfer  
-
-**Mobile App (Android):**  
-- BLE Client  
-- File Sync  
-- Displays summarized notes  
-
-**AI Backend:**  
-- Speech-to-Text  
-- Summarization  
-- Confidence scoring  
+- Lecture audio processing (pre-recorded + live recording)
+- Speech-to-Text using OpenAI Whisper
+- Summarization using Ollama (local LLM)
+- Clean text output stored as `.txt` files
+- Fully local AI pipeline (no cloud dependency for summarization)
 
 ---
 
-## Project Structure
-ai_backend/ → Whisper, summarizer scripts
-mobile_app/ → Android Studio project
-hardware/ → ESP32 I2S + BLE firmware
-docs/ → Technical documents, protocols
-.github/ → Repo automation
+##  AI Processing Pipeline
 
-
-
----
-
-## Team Roles
-
-- **Integrator (P6)** — Hardware + software integration  
-- **P1** — AI Backend  
-- **P2** — Android App  
-- **P3** — ESP32 I2S + Storage  
-- **P4** — ESP32 BLE Server  
-- **P5** — Testing + Documentation  
+1. Input lecture audio file (`.mp4` / `.wav`)
+2. Convert speech → text using Whisper
+3. Process and clean transcript
+4. Summarize using Ollama LLM
+5. Generate structured notes in text format
 
 ---
 
-## Week 1 Deliverables
-- BLE Handshake Protocol  
-- Pinout Definition  
-- I2S Audio Standard  
-- Repo Setup + Branch Rules  
-- Initial sample test audio file  
+##  Tech Stack
+
+| Component            | Technology Used        |
+|---------------------|------------------------|
+| Speech-to-Text     | OpenAI Whisper         |
+| Summarization      | Ollama (Local LLM)     |
+| Programming Language | Python               |
+| Hardware Platform  | ESP32-S3              |
+| Connectivity (Planned) | Bluetooth         |
+| Storage (Planned)  | SD Card               |
 
 ---
 
-## Next Goals  
-- I2S Audio Logging  
-- BLE File Transfer  
-- App UI Screens  
-- Whisper integration  
+##  Features Under Development
+
+The following features are part of the full **EduNote AI Smartwatch** vision but are not yet implemented:
+
+-  ESP32-based smartwatch prototype refinement
+-  Bluetooth audio transfer
+-  SD card audio storage
+-  Confidence Checker (AI-based fact verification)
+-  Companion mobile app integration
 
 ---
 
-## License  
-MIT License.
+## Repository Structure
+
+EduNote-AI/
+│
+├── live_recording/ # Audio recorded from ESP32
+├── demo_recording/ # Pre-recorded lecture samples
+├── notes.txt # Output from live recording
+├── final_notes.txt # Output from demo recording
+├── scripts/ # AI processing scripts
+└── README.md
+
+---
+
+##  Research Direction
+
+EduNote AI aims to evolve into a wearable AI-powered lecture assistant that:
+
+- Records classroom audio using low-cost hardware
+- Processes speech using local AI models
+- Generates structured academic notes
+- Integrates fact-verification mechanisms
+- Optimizes for Indian classroom environments
+
+The project explores the intersection of:
+
+- Edge AI Systems  
+- Speech Processing  
+- Local LLM Deployment  
+- AI for Education  
+
+---
+
+##  Future Work
+
+- Integrate Bluetooth-based audio transfer
+- Implement SD card storage pipeline
+- Add AI-powered confidence checker
+- Develop companion mobile interface
+- Optimize on-device AI inference
+
+---
+
+##  Author
+
+**Priyamvadhaa**  
+First-Year Engineering Student  
