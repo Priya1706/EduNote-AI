@@ -2,15 +2,9 @@
 
 import subprocess
 
-
 MODEL_NAME = "llama3:8b"
 
-
 def verify_notes(summary_text: str) -> str:
-    """
-    Sends the entire generated notes to Ollama for factual verification.
-    Returns verified notes with confidence score.
-    """
 
     prompt = f"""
 Fact-check the notes below.
@@ -26,13 +20,18 @@ NOTES:
 {summary_text}
 """
 
-
-    result = subprocess.run(
+    process = subprocess.Popen(
         ["ollama", "run", MODEL_NAME],
-        input=prompt,
-        capture_output=True,
+        stdin=subprocess.PIPE,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
         text=True,
         encoding="utf-8"
     )
 
-    return result.stdout.strip()
+    output, error = process.communicate(prompt)
+
+    if error:
+        print("Ollama error:", error)
+
+    return output.strip()

@@ -1,6 +1,11 @@
+# ai_backend/note_generator.py
+
 import subprocess
 
+MODEL_NAME = "llama3:8b"
+
 def generate_notes(transcript: str) -> str:
+
     prompt = f"""
 You are an academic assistant.
 
@@ -24,12 +29,18 @@ TRANSCRIPT:
 {transcript}
 """
 
-    result = subprocess.run(
-        ["ollama", "run", "llama3:8b"],
-        input=prompt,
-        capture_output=True,
+    process = subprocess.Popen(
+        ["ollama", "run", MODEL_NAME],
+        stdin=subprocess.PIPE,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
         text=True,
         encoding="utf-8"
     )
 
-    return result.stdout.strip()
+    output, error = process.communicate(prompt)
+
+    if error:
+        print("Ollama error:", error)
+
+    return output.strip()
