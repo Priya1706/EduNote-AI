@@ -22,7 +22,9 @@ This project explores the integration of Artificial Intelligence, Speech Process
 - Speech-to-Text using OpenAI Whisper
 - Summarization using Ollama (local LLM)
 - Clean text output stored as `.txt` files
+- Confidence score generator 
 - Fully local AI pipeline (no cloud dependency for summarization)
+- Wi-fi transmission of audio files from hardware
 
 ---
 
@@ -44,20 +46,8 @@ This project explores the integration of Artificial Intelligence, Speech Process
 | Summarization      | Ollama (Local LLM)     |
 | Programming Language | Python               |
 | Hardware Platform  | ESP32-S3              |
-| Connectivity (Planned) | Bluetooth         |
+| Connectivity       | Wifi                  |
 | Storage (Planned)  | SD Card               |
-
----
-
-##  Features Under Development
-
-The following features are part of the full **EduNote AI Smartwatch** vision but are not yet implemented:
-
--  ESP32-based smartwatch prototype refinement
--  Bluetooth audio transfer
--  SD card audio storage
--  Confidence Checker (AI-based fact verification)
--  Companion mobile app integration
 
 ---
 
@@ -90,17 +80,6 @@ The project explores the intersection of:
 - Speech Processing  
 - Local LLM Deployment  
 - AI for Education  
-
----
-
-##  Future Work
-
-- Integrate Bluetooth-based audio transfer
-- Implement SD card storage pipeline
-- Add AI-powered confidence checker
-- Develop companion mobile interface
-- Optimize on-device AI inference
-
 ---
 
 ##  Author
